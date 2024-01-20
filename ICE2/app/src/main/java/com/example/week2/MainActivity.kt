@@ -15,14 +15,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val greetingTextView = findViewById<TextView>(R.id.greetingTextView)
+        val helloButton = findViewById<Button>(R.id.change)
+        val additionalButton = findViewById<Button>(R.id.change2)
         greetingTextView.text = "Hello, World"
         Log.i("info","hello world soft coded in the textview")
-        val allCapsButton = findViewById<Button>(R.id.change)
+        
 
-        allCapsButton.setOnClickListener {
+        helloButton.setOnClickListener {
             greetingTextView.text = if (greetingTextView.text == "Hello, World") "GoodBye , World"
             else "Hello, World"
             Log.i("","making sure that button works")
+        }
+
+        additionalButton.setOnClickListener{
+            greetingTextView.text = if (greetingTextView.text == "Additional Button Clicked")
+                "Welcome Back!"
+            else
+                "Additional Button Clicked"
         }
     }
 }
