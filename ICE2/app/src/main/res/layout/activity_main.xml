@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#11009E"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -19,6 +20,8 @@
             android:id="@+id/greetingTextView"
             android:layout_width="match_parent"
             android:layout_height="81dp"
+            android:fontFamily="@font/aclonica"
+            android:textColor="#FF004D"
             android:text="TextView"
             android:textSize="30sp" />
 

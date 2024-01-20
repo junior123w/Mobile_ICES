@@ -19,19 +19,24 @@ class MainActivity : AppCompatActivity() {
         val additionalButton = findViewById<Button>(R.id.change2)
         greetingTextView.text = "Hello, World"
         Log.i("info","hello world soft coded in the textview")
-        
 
-        helloButton.setOnClickListener {
+        val changeFunction: () -> Unit = {
             greetingTextView.text = if (greetingTextView.text == "Hello, World") "GoodBye , World"
             else "Hello, World"
-            Log.i("","making sure that button works")
+            Log.i("info", "Change button clicked")
         }
 
-        additionalButton.setOnClickListener{
+        val additionalFunction: () -> Unit = {
             greetingTextView.text = if (greetingTextView.text == "Additional Button Clicked")
                 "Welcome Back!"
             else
                 "Additional Button Clicked"
+            Log.i("info", "Additional button clicked")
         }
+
+        // Assign functions to buttons
+        helloButton.setOnClickListener { changeFunction.invoke() }
+        additionalButton.setOnClickListener { additionalFunction.invoke() }
     }
+
 }
