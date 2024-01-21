@@ -18,19 +18,21 @@ class MainActivity : AppCompatActivity() {
         val helloButton = findViewById<Button>(R.id.change)
         val additionalButton = findViewById<Button>(R.id.change2)
         greetingTextView.text = "Hello, World"
+        helloButton.text="Question"
+        additionalButton.text="Answer"
         Log.i("info","hello world soft coded in the textview")
 
         val changeFunction: () -> Unit = {
-            greetingTextView.text = if (greetingTextView.text == "Hello, World") "GoodBye , World"
-            else "Hello, World"
+            greetingTextView.text = if (greetingTextView.text == "Hello how are you?") "How is your day going?"
+            else "Hello how are you?"
             Log.i("info", "Change button clicked")
         }
 
         val additionalFunction: () -> Unit = {
-            greetingTextView.text = if (greetingTextView.text == "Additional Button Clicked")
-                "Welcome Back!"
+            greetingTextView.text = if (greetingTextView.text == "I'm fine")
+                "Day is going better"
             else
-                "Additional Button Clicked"
+                "I'm fine"
             Log.i("info", "Additional button clicked")
         }
 
