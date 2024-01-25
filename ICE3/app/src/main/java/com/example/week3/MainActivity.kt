@@ -6,17 +6,18 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import com.example.week3.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val clearButton = findViewById<Button>(R.id.clearButton)
-        val percentButton = findViewById<Button>(R.id.percentButton)
 
-        clearButton.setOnClickListener { view -> processOperatorButtons(view) }
-        percentButton.setOnClickListener { view -> processOperatorButtons(view) }
+        binding.clearButton.setOnClickListener { view -> processOperatorButtons(view) }
+        binding.percentButton.setOnClickListener { view -> processOperatorButtons(view) }
     }
 
     private fun processOperatorButtons(view: View) {
