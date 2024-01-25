@@ -35,26 +35,279 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstRow">
+        app:layout_constraintTop_toBottomOf="@+id/firstRow"
+        app:layout_constraintBottom_toTopOf="@+id/thirdRow">
+
 
         <Button
             android:id="@+id/clearButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="C"
-            android:tag="clear"
             android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:tag="clear"
+            android:text="@string/clear"
+            android:fontFamily="@font/fa_solid_900"
             android:textSize="@dimen/buttonIconSize" />
 
         <Button
             android:id="@+id/percentButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="%"
-            android:tag="percent"
             android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:tag="percent"
+            android:text="@string/percentage"
+            android:fontFamily="@font/fa_solid_900"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/backSpaceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:tag="backSpace"
+            android:fontFamily="@font/fa_solid_900"
+            android:text="@string/backSpace"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/divideButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:tag="divide"
+            android:text="@string/divide"
+            android:fontFamily="@font/fa_solid_900"
+            android:textSize="@dimen/buttonIconSize" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/thirdRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondRow"
+        app:layout_constraintBottom_toTopOf="@+id/fourthRow">
+
+        <Button
+            android:id="@+id/nineButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:tag="nine"
+            android:text="@string/nine"
+            android:fontFamily="@font/fa_solid_900"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/eightButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:tag="eight"
+            android:text="@string/eight"
+            android:fontFamily="@font/fa_solid_900"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/sevenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:tag="seven"
+            android:fontFamily="@font/fa_solid_900"
+            android:text="@string/seven"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/multiplyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:tag="divide"
+            android:text="@string/multiply"
+            android:fontFamily="@font/fa_solid_900"
+            android:textSize="@dimen/buttonIconSize" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fourthRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thirdRow"
+        app:layout_constraintBottom_toTopOf="@+id/fifthRow"
+        >
+
+        <Button
+            android:id="@+id/sixButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:tag="six"
+            android:text="@string/six"
+            android:fontFamily="@font/fa_solid_900"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/fiveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:fontFamily="@font/fa_solid_900"
+            android:tag="five"
+            android:text="@string/five"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/fourButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:fontFamily="@font/fa_solid_900"
+            android:tag="four"
+            android:text="@string/four"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/subtractButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:fontFamily="@font/fa_solid_900"
+            android:tag="subtraction"
+            android:text="@string/subtract"
+            android:textSize="@dimen/buttonIconSize" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fifthRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fourthRow"
+        app:layout_constraintBottom_toTopOf="@+id/sixthRow"
+        >
+
+        <Button
+            android:id="@+id/thirdButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:tag="three"
+            android:text="@string/three"
+            android:fontFamily="@font/fa_solid_900"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/twoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:fontFamily="@font/fa_solid_900"
+            android:tag="two"
+            android:text="@string/two"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/oneButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:fontFamily="@font/fa_solid_900"
+            android:tag="one"
+            android:text="@string/one"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:fontFamily="@font/fa_solid_900"
+            android:tag="addition"
+            android:text="@string/add"
+            android:textSize="@dimen/buttonIconSize" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sixthRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fifthRow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <Button
+            android:id="@+id/plusMinusButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:tag="plusMinus"
+            android:fontFamily="@font/fa_solid_900"
+            android:text="@string/plusMinus"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/zeroButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:fontFamily="@font/fa_solid_900"
+            android:tag="zero"
+            android:text="@string/zero"
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/decimalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:fontFamily="@font/fa_solid_900"
+            android:tag="decimal"
+            android:text="."
+            android:textSize="@dimen/buttonIconSize" />
+
+        <Button
+            android:id="@+id/equalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/mx_10"
+            android:layout_weight="1"
+            android:fontFamily="@font/fa_solid_900"
+            android:tag="equal"
+            android:text="@string/equal"
             android:textSize="@dimen/buttonIconSize" />
 
     </LinearLayout>
