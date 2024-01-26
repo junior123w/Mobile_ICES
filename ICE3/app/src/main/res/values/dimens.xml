@@ -3,5 +3,5 @@
     <dimen name="resultTextViewFontStyle">80sp</dimen>
     <dimen name="px_10">10dp</dimen>
     <dimen name="mx_10">10dp</dimen>
-    <dimen name="buttonIconSize">35sp</dimen>
+    <dimen name="buttonIconSize">30sp</dimen>
 </resources>
