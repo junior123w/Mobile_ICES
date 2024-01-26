@@ -18,13 +18,34 @@ class MainActivity : AppCompatActivity() {
 
         binding.clearButton.setOnClickListener { view -> processOperatorButtons(view) }
         binding.percentButton.setOnClickListener { view -> processOperatorButtons(view) }
+        binding.backSpaceButton.setOnClickListener { view -> processOperatorButtons(view) }
+        binding.divideButton.setOnClickListener { view -> processOperatorButtons(view) }
+        binding.addButton.setOnClickListener { view -> processOperatorButtons(view) }
+        binding.subtractButton.setOnClickListener { view -> processOperatorButtons(view) }
+        binding.plusMinusButton.setOnClickListener { view -> processOperatorButtons(view) }
+        binding.equalButton.setOnClickListener { view -> processOperatorButtons(view) }
+        binding.multiplyButton.setOnClickListener { view -> processOperatorButtons(view) }
+        binding.nineButton.setOnClickListener { view-> numberButtons(view) }
+        binding.eightButton.setOnClickListener { view-> numberButtons(view) }
+        binding.sevenButton.setOnClickListener { view-> numberButtons(view) }
+        binding.sixButton.setOnClickListener { view-> numberButtons(view) }
+        binding.fiveButton.setOnClickListener { view-> numberButtons(view) }
+        binding.fourButton.setOnClickListener { view-> numberButtons(view) }
+        binding.thirdButton.setOnClickListener { view-> numberButtons(view) }
+        binding.twoButton.setOnClickListener { view-> numberButtons(view) }
+        binding.oneButton.setOnClickListener { view-> numberButtons(view) }
+        binding.zeroButton.setOnClickListener { view-> numberButtons(view) }
+        binding.decimalButton.setOnClickListener { view-> numberButtons(view) }
     }
 
     private fun processOperatorButtons(view: View) {
-        val resultTextView=findViewById<TextView>(R.id.resultTextView)
-        resultTextView.text=view.tag.toString()
+       binding.resultTextView.text=view.tag.toString()
         Log.i("operators",view.tag.toString())
+    }
 
+    private fun numberButtons(view: View) {
+        binding.resultTextView.text=view.tag.toString()
+        Log.i("operators",view.tag.toString())
     }
 
 }

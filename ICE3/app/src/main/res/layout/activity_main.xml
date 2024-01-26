@@ -145,7 +145,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/operator_colour"
             android:fontFamily="@font/fa_solid_900"
-            android:tag="divide"
+            android:tag="multiply"
             android:text="@string/multiply"
             android:textSize="@dimen/buttonIconSize" />
 
