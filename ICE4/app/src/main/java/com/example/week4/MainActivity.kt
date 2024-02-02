@@ -1,12 +1,10 @@
-package com.example.week3
+package com.example.week4
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.TextView
-import com.example.week3.databinding.ActivityMainBinding
+import com.example.week4.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
