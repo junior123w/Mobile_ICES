@@ -95,7 +95,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="@color/number_colour"
-            android:tag="nine"
+            android:tag="9"
             android:text="@string/nine" />
 
         <Button
@@ -104,7 +104,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="@color/number_colour"
-            android:tag="eight"
+            android:tag="8"
             android:text="@string/eight" />
 
         <Button
@@ -113,7 +113,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="@color/number_colour"
-            android:tag="seven"
+            android:tag="7"
             android:text="@string/seven" />
 
         <Button
@@ -143,7 +143,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="@color/number_colour"
-            android:tag="six"
+            android:tag="6"
             android:text="@string/six" />
 
         <Button
@@ -152,7 +152,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="@color/number_colour"
-            android:tag="five"
+            android:tag="5"
             android:text="@string/five" />
 
         <Button
@@ -161,7 +161,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="@color/number_colour"
-            android:tag="four"
+            android:tag="4"
             android:text="@string/four" />
 
         <Button
@@ -191,7 +191,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="@color/number_colour"
-            android:tag="three"
+            android:tag="3"
             android:text="@string/three" />
 
         <Button
@@ -199,7 +199,7 @@
             style="@style/CalculatorButton"
             android:layout_weight="1"
             android:backgroundTint="@color/number_colour"
-            android:tag="two"
+            android:tag="2"
             android:text="@string/two" />
 
         <Button
@@ -208,7 +208,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="@color/number_colour"
-            android:tag="one"
+            android:tag="1"
             android:text="@string/one" />
 
         <Button
@@ -247,7 +247,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="@color/number_colour"
-            android:tag="zero"
+            android:tag="0"
             android:text="@string/zero" />
 
         <Button
@@ -256,7 +256,7 @@
 
             android:layout_weight="1"
             android:backgroundTint="@color/number_colour"
-            android:tag="decimal"
+            android:tag="."
             android:text="." />
 
         <Button

@@ -8,6 +8,7 @@ import com.example.week4.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
+    private var resultLabelValue:String=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -31,30 +32,34 @@ class MainActivity : AppCompatActivity() {
         binding.backSpaceButton.setOnClickListener { view -> processExtraButtons(view) }
 
         //number buttons
-        binding.nineButton.setOnClickListener { view -> numberButtons(view) }
-        binding.eightButton.setOnClickListener { view -> numberButtons(view) }
-        binding.sevenButton.setOnClickListener { view -> numberButtons(view) }
-        binding.sixButton.setOnClickListener { view -> numberButtons(view) }
-        binding.fiveButton.setOnClickListener { view -> numberButtons(view) }
-        binding.fourButton.setOnClickListener { view -> numberButtons(view) }
-        binding.thirdButton.setOnClickListener { view -> numberButtons(view) }
-        binding.twoButton.setOnClickListener { view -> numberButtons(view) }
-        binding.oneButton.setOnClickListener { view -> numberButtons(view) }
-        binding.zeroButton.setOnClickListener { view -> numberButtons(view) }
-        binding.decimalButton.setOnClickListener { view -> numberButtons(view) }
+        binding.nineButton.setOnClickListener { view -> processNumberButtons(view) }
+        binding.eightButton.setOnClickListener { view -> processNumberButtons(view) }
+        binding.sevenButton.setOnClickListener { view -> processNumberButtons(view) }
+        binding.sixButton.setOnClickListener { view -> processNumberButtons(view) }
+        binding.fiveButton.setOnClickListener { view -> processNumberButtons(view) }
+        binding.fourButton.setOnClickListener { view -> processNumberButtons(view) }
+        binding.thirdButton.setOnClickListener { view -> processNumberButtons(view) }
+        binding.twoButton.setOnClickListener { view -> processNumberButtons(view) }
+        binding.oneButton.setOnClickListener { view -> processNumberButtons(view) }
+        binding.zeroButton.setOnClickListener { view -> processNumberButtons(view) }
+        binding.decimalButton.setOnClickListener { view -> processNumberButtons(view) }
     }
 
     //shared event handlers
-    private fun processOperatorButtons(view: View) {
-       binding.resultTextView.text=view.tag.toString()
+    private fun processOperatorButtons(view: View) 
+    {
+       
     }
 
-    private fun processExtraButtons(view:View){
+    private fun processExtraButtons(view:View)
+    {
 
     }
 
-    private fun numberButtons(view: View) {
-        binding.resultTextView.text=view.tag.toString()
+    private fun processNumberButtons(view: View)
+    {
+        resultLabelValue += view.tag.toString()
+        binding.resultTextView.text= resultLabelValue
     }
 
 }
