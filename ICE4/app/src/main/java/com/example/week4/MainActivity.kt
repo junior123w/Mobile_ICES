@@ -64,6 +64,17 @@ class MainActivity : AppCompatActivity() {
                     binding.resultTextView.text = resultLabelValue
                 }
             }
+
+            binding.plusMinusButton ->{
+                if (resultLabelValue.isNotEmpty() && resultLabelValue != "0") {
+                    if (resultLabelValue[0] == '-') {
+                        resultLabelValue = resultLabelValue.substring(1)
+                    } else {
+                        resultLabelValue = "-$resultLabelValue"
+                    }
+                    binding.resultTextView.text = resultLabelValue
+                }
+            }
         }
     }
 
