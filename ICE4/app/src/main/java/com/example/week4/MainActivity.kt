@@ -7,8 +7,8 @@ import android.view.View
 import com.example.week4.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding:ActivityMainBinding
-    private var resultLabelValue:String=""
+    private lateinit var binding: ActivityMainBinding
+    private var resultLabelValue: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -46,29 +46,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     //shared event handlers
-    private fun processOperatorButtons(view: View) 
-    {
-       
-    }
-
-    private fun processExtraButtons(view:View)
-    {
+    private fun processOperatorButtons(view: View) {
 
     }
+
+    private fun processExtraButtons(view: View) {
+
+    }
+
 
     private fun processNumberButtons(view: View)
     {
-        if(view.tag.toString() == ".")
-        {
-            if(!resultLabelValue.contains("."))
-            {
-                resultLabelValue += view.tag.toString()
-            }
-        }
-        else
-        {
-            resultLabelValue += view.tag.toString()
+        val buttonValue= view.tag.toString()
 
+        if (resultLabelValue == "0") {
+            resultLabelValue = buttonValue
+        } else {
+            if (view.tag.toString() == ".") {
+                if (!resultLabelValue.contains(".")) {
+                    resultLabelValue += view.tag.toString()
+                }
+            } else {
+                resultLabelValue += view.tag.toString()
+
+            }
         }
         binding.resultTextView.text= resultLabelValue
 
