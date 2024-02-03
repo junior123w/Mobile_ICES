@@ -58,7 +58,12 @@ class MainActivity : AppCompatActivity() {
                 binding.resultTextView.text = resultLabelValue
             }
 
-
+            binding.backSpaceButton ->{
+                if (resultLabelValue.isNotEmpty()) {
+                    resultLabelValue = resultLabelValue.substring(0, resultLabelValue.length - 1)
+                    binding.resultTextView.text = resultLabelValue
+                }
+            }
         }
     }
 
