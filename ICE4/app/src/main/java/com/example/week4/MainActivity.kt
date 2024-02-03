@@ -51,7 +51,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun processExtraButtons(view: View) {
+        when (view)
+        {
+            binding.clearButton ->{
+                resultLabelValue = "0"
+                binding.resultTextView.text = resultLabelValue
+            }
 
+
+        }
     }
 
 
