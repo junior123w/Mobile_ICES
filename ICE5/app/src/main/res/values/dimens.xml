@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="resultTextViewFontStyle">80sp</dimen>
+    <dimen name="resultTextViewLandFontStyle">60sp</dimen>
+    <dimen name="px_10">10dp</dimen>
+    <dimen name="mx_10">10dp</dimen>
+    <dimen name="p_0">0dp</dimen>
+    <dimen name="buttonIconSize">30sp</dimen>
+</resources>
