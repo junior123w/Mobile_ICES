@@ -3,13 +3,12 @@ package com.example.week5
 import android.view.View
 import com.example.week5.databinding.ActivityMainBinding
 
-class Calculator(binding: ActivityMainBinding)
-{
+class Calculator(binding: ActivityMainBinding) {
     private var m_binding: ActivityMainBinding
-    private var m_resultLabelValue : String
-    
-    init{
-        this.m_binding=binding
+    private var m_resultLabelValue: String
+
+    init {
+        this.m_binding = binding
         this.m_resultLabelValue = ""
         initializeOnCLickListener()
     }
@@ -50,53 +49,52 @@ class Calculator(binding: ActivityMainBinding)
 
 
     private fun processExtraButtons(view: View) {
-        when (view)
-        {
-            this.m_binding.clearButton ->{
-                m_resultLabelValue = "0"
+        when (view.tag.toString()) {
+            "clear" -> {
+                this.m_resultLabelValue = "0"
                 this.m_binding.resultTextView.text = m_resultLabelValue
             }
 
-            this.m_binding.backSpaceButton -> {
-                if (m_resultLabelValue.isNotEmpty()) {
-                    m_resultLabelValue =
-                        m_resultLabelValue.substring(0, m_resultLabelValue.length - 1)
-                    this.m_binding.resultTextView.text =
-                        if (m_resultLabelValue.isNotEmpty()) { m_resultLabelValue} else {"0"}
+            "backSpace"-> {
+                this.m_resultLabelValue = this.m_resultLabelValue.dropLast(1)
+                this.m_binding.resultTextView.text = this.m_resultLabelValue
+                if (m_resultLabelValue.isEmpty()) {
+                    this.m_binding.resultTextView.text = "0"
                 }
             }
 
-            this.m_binding.plusMinusButton ->{
-                if (m_resultLabelValue.isNotEmpty() && m_resultLabelValue != "0") {
-                    m_resultLabelValue = if (m_resultLabelValue[0] == '-') {
-                        m_resultLabelValue.substring(1)
+            "plusMinus" -> {
+                if (this.m_resultLabelValue.isNotEmpty() && this.m_resultLabelValue != "0") {
+                    this.m_resultLabelValue = if (this.m_resultLabelValue[0] == '-') {
+                        this.m_resultLabelValue.substring(1)
                     } else {
-                        "-$m_resultLabelValue"
+                        "-$this.m_resultLabelValue"
                     }
-                    this.m_binding.resultTextView.text = m_resultLabelValue
+                    this.m_binding.resultTextView.text = this.m_resultLabelValue
                 }
             }
         }
     }
 
 
-    private fun processNumberButtons(view: View)
-    {
-        val buttonValue= view.tag.toString()
+    private fun processNumberButtons(view: View) {
+        when (view.tag.toString()) {
+            "." -> {
+                if (!this.m_resultLabelValue.contains(".")) {
+                    if (this.m_resultLabelValue.isEmpty()) {
+                        this.m_resultLabelValue = "0."
+                    } else {
+                        this.m_resultLabelValue += view.tag.toString()
+                    }
 
-        if (m_resultLabelValue == "0") {
-            m_resultLabelValue = buttonValue
-        } else {
-            if (view.tag.toString() == ".") {
-                if (!m_resultLabelValue.contains(".")) {
-                    m_resultLabelValue += view.tag.toString()
                 }
-            } else {
-                m_resultLabelValue += view.tag.toString()
+            }
 
+            else -> {
+                this.m_resultLabelValue += view.tag.toString()
             }
         }
-        this.m_binding.resultTextView.text= m_resultLabelValue
 
+        this.m_binding.resultTextView.text = this.m_resultLabelValue
     }
 }
