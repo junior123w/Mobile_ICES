@@ -51,31 +51,36 @@ class Calculator(binding: ActivityMainBinding) {
     private fun processExtraButtons(view: View) {
         when (view.tag.toString()) {
             "clear" -> {
-                this.m_resultLabelValue = "0"
-                this.m_binding.resultTextView.text = m_resultLabelValue
+                this.m_resultLabelValue = ""
+                this.m_binding.resultTextView.text = "0"
             }
 
-            "backSpace"-> {
+            "backSpace" -> {
                 this.m_resultLabelValue = this.m_resultLabelValue.dropLast(1)
                 this.m_binding.resultTextView.text = this.m_resultLabelValue
-                if (m_resultLabelValue.isEmpty()) {
+                if (m_resultLabelValue.isEmpty() || m_resultLabelValue == "-")
+                {
+                    this.m_resultLabelValue = ""
                     this.m_binding.resultTextView.text = "0"
                 }
             }
 
             "plusMinus" -> {
-                if (this.m_resultLabelValue.isNotEmpty() && this.m_resultLabelValue != "0") {
-                    this.m_resultLabelValue = if (this.m_resultLabelValue[0] == '-') {
-                        this.m_resultLabelValue.substring(1)
-                    } else {
-                        "-$this.m_resultLabelValue"
+                if (this.m_resultLabelValue.isNotEmpty())
+                {
+                    if (this.m_resultLabelValue.contains("-"))
+                    {
+                        this.m_resultLabelValue=this.m_resultLabelValue.removePrefix("-")
                     }
-                    this.m_binding.resultTextView.text = this.m_resultLabelValue
+                    else
+                    {
+                        this.m_resultLabelValue = "-" + this.m_resultLabelValue
+                    }
+                    this.m_binding.resultTextView.text= this.m_resultLabelValue
                 }
             }
         }
     }
-
 
     private fun processNumberButtons(view: View) {
         when (view.tag.toString()) {
