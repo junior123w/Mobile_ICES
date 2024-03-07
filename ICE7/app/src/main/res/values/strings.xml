@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Week08</string>
+    <string name="title_text">title</string>
+    <string name="studio_text">subtitle</string>
 </resources>
