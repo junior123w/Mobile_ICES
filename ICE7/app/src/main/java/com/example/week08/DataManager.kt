@@ -1,14 +1,11 @@
-package com.example.week_06
+package com.example.week08
 
 import android.content.Context
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
-/**
- * The DataManager Class is a Singleton
- */
+
 class DataManager private constructor()
 {
     fun getTextFromResource(context: Context, resourceId: Int): String
@@ -25,15 +22,14 @@ class DataManager private constructor()
             .use { it.readText()}
     }
 
-    fun deserializeJSON(context: Context): List<ContactModel>?
-    {
+    // Updated deserializeJSON to directly return an Array<TVShow>
+    fun deserializeJSON(context: Context): Array<TVShow>? {
         val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
-        val listType = Types.newParameterizedType(List::class.java, ContactModel::class.java)
-        val adapter: JsonAdapter<List<ContactModel>> = moshi.adapter(listType)
-        val contactListRawString = getTextFromResource(context, R.raw.contacts)
-        val contactList: List<ContactModel>? = adapter.fromJson(contactListRawString)
-        return contactList
+        val adapter: JsonAdapter<Array<TVShow>> = moshi.adapter(Array<TVShow>::class.java)
+        val contactListRawString = getTextFromResource(context, R.raw.tvshows)
+        return adapter.fromJson(contactListRawString)
     }
+
 
     companion object
     {
