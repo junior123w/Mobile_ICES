@@ -6,7 +6,7 @@ import com.google.firebase.firestore.toObject
 
 class FirestoreDataManager {
     private val db = FirebaseFirestore.getInstance()
-    private val collectionRef = db.collection("movies")
+    private val collectionRef = db.collection("Movie")
 
     fun getMovies(onComplete: (List<FirebaseMovie>) -> Unit)
     {
@@ -25,5 +25,11 @@ class FirestoreDataManager {
         collectionRef.add(movie)
             .addOnSuccessListener { onComplete(true) }
             .addOnFailureListener { onComplete(false)}
+    }
+
+    fun updateMovie(movieId:String,movie:FirebaseMovie,onComplete: (Boolean) -> Unit) {
+        collectionRef.document(movieId).set(movie)
+            .addOnSuccessListener { onComplete(true) }
+            .addOnFailureListener { onComplete(false) }
     }
 }
