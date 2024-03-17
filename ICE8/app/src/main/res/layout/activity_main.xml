@@ -30,4 +30,5 @@
         tools:ignore="SpeakableTextPresentCheck"
         android:contentDescription="Add a Movie" />
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>

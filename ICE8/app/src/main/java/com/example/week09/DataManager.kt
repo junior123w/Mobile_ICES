@@ -1,38 +1,60 @@
 package com.example.week09
 
-import android.content.Context
-import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.Callback
 
-
+/**
+ * DataManager Singleton
+ *
+ * */
 class DataManager private constructor()
 {
-    fun getTextFromResource(context: Context, resourceId: Int): String
-    {
-        return context.resources.openRawResource(resourceId)
-            .bufferedReader()
-            .use { it.readText()}
-    }
-
-    fun getTextFromAsset(context: Context, fileName: String): String
-    {
-        return context.resources.assets.open(fileName)
-            .bufferedReader()
-            .use { it.readText()}
-    }
-
-    // Updated deserializeJSON to directly return an Array<TVShow>
-    fun deserializeJSON(context: Context): Array<TVShow>? {
-        val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
-        val adapter: JsonAdapter<Array<TVShow>> = moshi.adapter(Array<TVShow>::class.java)
-        val contactListRawString = getTextFromResource(context, R.raw.tvshows)
-        return adapter.fromJson(contactListRawString)
-    }
-
-
     companion object
     {
+        private const val BASE_URL = "https://comp2140.com/api/"
+
+        // converts JSON to Data we can use
+        private val moshi: Moshi by lazy {
+            Moshi.Builder()
+                .addLast(KotlinJsonAdapterFactory())
+                .build()
+        }
+
+        // Retrofit enables REQ / RES with APIs
+        private val retrofit: Retrofit by lazy {
+            Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(MoshiConverterFactory.create(moshi))
+                .build()
+        }
+
         val instance: DataManager by lazy { DataManager() }
+    }
+
+    private val service: MovieAPIService by lazy {
+        retrofit.create(MovieAPIService::class.java)
+    }
+
+    fun getAllMovies(callback: Callback<ApiResponse<List<Movie>>>) {
+        service.getAllMovies().enqueue(callback)
+    }
+
+    fun getMovieById(id: String?, callback: Callback<ApiResponse<Movie>>) {
+        service.getMovieById(id).enqueue(callback)
+    }
+
+    fun addMovie(movie: Movie, callback: Callback<ApiResponse<Movie>>) {
+        service.addMovie(movie).enqueue(callback)
+    }
+
+    fun updateMovie(id: String?, movie: Movie, callback: Callback<ApiResponse<Movie>>) {
+        service.updateMovie(id, movie).enqueue(callback)
+    }
+
+    fun deleteMovie(id: String?, callback: Callback<ApiResponse<String>>) {
+        service.deleteMovie(id).enqueue(callback)
     }
 }

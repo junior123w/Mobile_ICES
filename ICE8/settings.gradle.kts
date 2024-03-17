@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Week08"
+rootProject.name = "Week09"
 include(":app")
