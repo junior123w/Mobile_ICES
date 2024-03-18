@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.week09.databinding.TextRowItemBinding
 
 
-class FirstAdapter(private var dataSet: List<Movie>) :
+class FirstAdapter(private var dataSet: List<FirebaseMovie>) :
     RecyclerView.Adapter<FirstAdapter.ViewHolder>()
 {
     var onMovieClick: ((Movie)-> Unit)? = null
@@ -26,9 +26,9 @@ class FirstAdapter(private var dataSet: List<Movie>) :
         viewHolder.binding.title.text = dataSet[position].title
         viewHolder.binding.studio.text = dataSet[position].studio
 
-        viewHolder.binding.root.setOnClickListener{
+        /*viewHolder.binding.root.setOnClickListener{
             onMovieClick?.invoke(dataSet[position])
-        }
+        }*/
     }
 
     override fun getItemCount() = dataSet.size

@@ -22,8 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var firstAdapter: FirstAdapter
     private lateinit var movieList: MutableList<Movie>
 
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Inflate the layout
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -32,15 +31,13 @@ class MainActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
 
         val fireStore = FirestoreDataManager()
-        fireStore.getMovies { movies->
-            for (movie in movies){
-                println(movie.studio)
-            }
+        fireStore.getMovies { movies ->
+            firstAdapter = FirstAdapter(movies)
         }
 
         viewModel.movies.observe(this) { movies ->
             movieList = movies.toMutableList() // for testing only - not required
-            firstAdapter = FirstAdapter(movies)
+           // firstAdapter = FirstAdapter(movies)
 
             binding.FirstRecyclerView.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity)
@@ -141,4 +138,5 @@ class MainActivity : AppCompatActivity() {
         builder.create().show()
     }
 
-}
+
+    }
