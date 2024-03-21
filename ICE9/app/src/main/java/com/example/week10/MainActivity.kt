@@ -1,6 +1,8 @@
 package com.example.week10
 
 import android.app.AlertDialog
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -8,12 +10,13 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.week10.databinding.AddNewMovieItemBinding
 import com.example.week10.databinding.ActivityMainBinding
+import com.example.week10.databinding.AddNewMovieItemBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.FirebaseApp
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity()
+{
     // Declare an instance of the binding class
     private lateinit var binding: ActivityMainBinding
     private lateinit var addNewMovieBinding: AddNewMovieItemBinding
@@ -22,22 +25,35 @@ class MainActivity : AppCompatActivity() {
     private lateinit var firstAdapter: FirstAdapter
     private lateinit var movieList: MutableList<Movie>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         // Inflate the layout
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //firebase initializer
+
+        // initialize Firebase
         FirebaseApp.initializeApp(this)
 
-        val fireStore = FirestoreDataManager()
-        fireStore.getMovies { movies ->
-            firstAdapter = FirstAdapter(movies)
+        val firestore = FirestoreDataManager()
+        firestore.getMovies { movies ->
+            for(movie in movies)
+            {
+                println(movie.title)
+            }
+        }
+
+        val newMovie = FirebaseMovie("MyTitle", "MyStudio")
+        firestore.addMovie(newMovie) { isSuccess ->
+            if(isSuccess)
+            {
+                println("Success!")
+            }
         }
 
         viewModel.movies.observe(this) { movies ->
-            movieList = movies.toMutableList() // for testing only - not required
-           // firstAdapter = FirstAdapter(movies)
+            movieList = movies.toMutableList()
+            firstAdapter = FirstAdapter(movies)
 
             binding.FirstRecyclerView.apply {
                 layoutManager = LinearLayoutManager(this@MainActivity)
@@ -50,24 +66,24 @@ class MainActivity : AppCompatActivity() {
             }
 
             // Setup swipe to delete
-            val swipeToDeleteCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            val swipeToDeleteCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT)
+            {
                 override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean
                 {
                     return false // not used
                 }
 
-                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int)
+                {
                     AlertDialog.Builder(this@MainActivity).apply {
                         setTitle(R.string.delete_movie)
                         setMessage(R.string.are_you_sure)
-                        // OK Button
                         setPositiveButton(R.string.ok) { dialog, _ ->
                             dialog.dismiss()
                             val position = viewHolder.adapterPosition
                             val movieId = movieList[position].id
                             viewModel.deleteMovie(movieId) // Trigger deletion in ViewModel
                         }
-                        // Cancel Button
                         setNegativeButton(R.string.cancel) { dialog, _ ->
                             dialog.dismiss()
                             firstAdapter.notifyItemChanged(viewHolder.adapterPosition) // Reverts the swipe action visually
@@ -87,6 +103,8 @@ class MainActivity : AppCompatActivity() {
         // add the FAB
         addMovieFAB = binding.addMovieFAB
         addMovieFAB.setOnClickListener{ showAddMovieDialog() }
+
+        binding.logoutButton.setOnClickListener { logoutUser() }
     }
 
     private fun showAddMovieDialog()
@@ -138,5 +156,15 @@ class MainActivity : AppCompatActivity() {
         builder.create().show()
     }
 
-
+    private fun logoutUser()
+    {
+        val sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            remove("auth_token")
+            apply()
+        }
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
+
+}

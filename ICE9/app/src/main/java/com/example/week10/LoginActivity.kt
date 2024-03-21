@@ -35,12 +35,12 @@ class LoginActivity : AppCompatActivity()
             startActivity(intent)
         }
 
-      /*  binding.loginButton.setOnClickListener {
+        binding.loginButton.setOnClickListener {
             val username = binding.usernameEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
             loginUser(username, password)
         }
-*/
+
     }
 
 
