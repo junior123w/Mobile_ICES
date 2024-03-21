@@ -21,7 +21,7 @@ class RegisterActivity : AppCompatActivity()
             finish()
         }
 
-       /* binding.RegisterButton.setOnClickListener {
+        binding.RegisterButton.setOnClickListener {
             val user = User(
                 username = binding.UsernameText.text.toString(),
                 emailAddress = binding.EmailEditText.text.toString(),
@@ -31,11 +31,9 @@ class RegisterActivity : AppCompatActivity()
             )
             registerUser(user)
         }
-
-        */
     }
 
-    /*private fun registerUser(user: User) {
+    private fun registerUser(user: User) {
         DataManager.instance(this).registerUser(user, object : Callback<ApiResponse<User>>
         {
             override fun onResponse(call: Call<ApiResponse<User>>, response: Response<ApiResponse<User>>)
@@ -58,5 +56,5 @@ class RegisterActivity : AppCompatActivity()
             }
         })
     }
-    */
+
 }

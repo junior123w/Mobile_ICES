@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity()
     }
 
 
-   /* private fun loginUser(username: String, password: String)
+    private fun loginUser(username: String, password: String)
     {
         val user = User(username = username, password = password)
         DataManager.instance(this).loginUser(user, object : Callback<ApiResponse<User>>
@@ -77,7 +77,7 @@ class LoginActivity : AppCompatActivity()
             }
         })
     }
-*/
+
     private fun showLoginFailedSnackbar(message: String) {
         val snackbar = Snackbar.make(binding.root, message, Snackbar.LENGTH_LONG)
         val view = snackbar.view
