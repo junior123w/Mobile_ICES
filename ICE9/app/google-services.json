@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "371708571776",
+    "project_id": "ice08-ad138",
+    "storage_bucket": "ice08-ad138.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371708571776:android:7f8f40ef54f30b0e537665",
+        "android_client_info": {
+          "package_name": "com.example.week10"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB-HfWgO3lDASyamyCZGgqY7vLwQFqqAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

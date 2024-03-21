@@ -1,4 +1,4 @@
-package com.example.week09
+package com.example.week10
 
 import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +8,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.week09.databinding.AddNewMovieItemBinding
-import com.example.week09.databinding.ActivityMainBinding
+import com.example.week10.databinding.AddNewMovieItemBinding
+import com.example.week10.databinding.ActivityMainBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.FirebaseApp
 
