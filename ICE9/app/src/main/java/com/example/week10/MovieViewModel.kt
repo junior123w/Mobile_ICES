@@ -2,12 +2,13 @@ package com.example.week10
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 
-class MovieViewModel : ViewModel()
+class MovieViewModel(application: Application) : AndroidViewModel(application)
 {
     // LiveData for movie list
     private val movieList = MutableLiveData<List<Movie>>()
@@ -18,18 +19,19 @@ class MovieViewModel : ViewModel()
     val movie: LiveData<Movie> = individualMovie
 
     // reference to the DataManager Singleton
-    private val dataManager = DataManager.instance
+    private val dataManager = DataManager.instance(application)
+
 
     fun getAllMovies()
     {
-        dataManager.getAllMovies(object : Callback<ApiResponse<List<Movie>>> {
+        dataManager.getAllMovies(object : Callback<ApiResponse<List<Movie>>>
+        {
             override fun onResponse(call: Call<ApiResponse<List<Movie>>>, response: Response<ApiResponse<List<Movie>>>) {
                 if (response.isSuccessful)
                 {
                     val apiResponse = response.body()
                     if(apiResponse != null && apiResponse.success)
                     {
-                        // send a message to all observers that the movieList is ready
                         movieList.postValue(response.body()?.data!!)
                     }
                     else
@@ -58,7 +60,6 @@ class MovieViewModel : ViewModel()
             {
                 if (response.isSuccessful)
                 {
-                    // notify all observers that the movie to be returned is ready
                     individualMovie.postValue(response.body()?.data!!)
                 }
                 else
