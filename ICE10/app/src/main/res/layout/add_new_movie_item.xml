@@ -22,7 +22,7 @@
             android:layout_marginEnd="5dp"
             android:text="@string/title_prompt"
             android:textSize="@dimen/cell_text_size"
-            android:textStyle="bold"
+
             app:layout_constraintBottom_toTopOf="@+id/studio_title_label"
             app:layout_constraintEnd_toStartOf="@+id/movie_title_edit_text"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,6 @@
             android:layout_marginStart="5dp"
             android:text="@string/studio_prompt"
             android:textSize="@dimen/cell_text_size"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_conversion_absoluteHeight="0dp"
