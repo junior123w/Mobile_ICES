@@ -1,23 +1,25 @@
-package com.example.week10
+package com.example.week11
 
 import android.app.AlertDialog
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.week10.databinding.ActivityMainBinding
-import com.example.week10.databinding.AddNewMovieItemBinding
+import com.example.week11.FirstAdapter
+import com.example.week11.R
+import com.example.week11.databinding.ActivityMainBinding
+import com.example.week11.databinding.AddNewMovieItemBinding
+import com.example.week11.Movie
+import com.example.week11.MovieViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity : AppCompatActivity() {
+
+
+class MainActivity : AppCompatActivity()
+{
     // Declare an instance of the binding class
     private lateinit var binding: ActivityMainBinding
     private lateinit var addNewMovieBinding: AddNewMovieItemBinding
@@ -26,30 +28,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var firstAdapter: FirstAdapter
     private lateinit var movieList: MutableList<Movie>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         // Inflate the layout
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // initialize Firebase
-        FirebaseApp.initializeApp(this)
-        authenticateUser()
 
-        val firestore = FirestoreDataManager()
-        firestore.getMovies { movies ->
-            for (movie in movies) {
-                println(movie.title)
-            }
-        }
 
-        /* val newMovie = FirebaseMovie("MyTitle", "MyStudio")
-        firestore.addMovie(newMovie) { isSuccess ->
-            if(isSuccess)
-            {
-                println("Success!")
-            }
-        }
 
         viewModel.movies.observe(this) { movies ->
             movieList = movies.toMutableList()
@@ -104,15 +91,11 @@ class MainActivity : AppCompatActivity() {
         addMovieFAB = binding.addMovieFAB
         addMovieFAB.setOnClickListener{ showAddMovieDialog() }
 
-        binding.logoutButton.setOnClickListener { logoutUser() }
-    }*/
-    }
-        private fun authenticateUser() {
-            val authentication = FirebaseAuth.getInstance()
-            val user = authentication.currentUser
-        }
 
-        /* private fun showAddMovieDialog()
+    }
+
+
+    private fun showAddMovieDialog()
     {
         val dialogTitle = getString(R.string.add_dialog_title)
         val positiveButtonTitle = getString(R.string.add_movie)
@@ -161,15 +144,6 @@ class MainActivity : AppCompatActivity() {
         builder.create().show()
     }
 
-    private fun logoutUser()
-    {
-        val sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
-        with(sharedPreferences.edit()) {
-            remove("auth_token")
-            apply()
-        }
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
-    }
-*/
-    }
+
+
+}
