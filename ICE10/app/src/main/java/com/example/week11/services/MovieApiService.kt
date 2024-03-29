@@ -1,5 +1,8 @@
-package com.example.week11
+package com.example.week11.services
 
+import com.example.week11.models.ApiResponse
+import com.example.week11.models.Movie
+import com.example.week11.models.User
 import retrofit2.Call
 import retrofit2.http.*
 interface MovieAPIService {

@@ -1,9 +1,10 @@
-package com.example.week11
+package com.example.week11.services
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.week11.databinding.TextRowItemBinding
+import com.example.week11.models.Movie
 
 
 class FirstAdapter(private var dataSet: List<Movie>) :

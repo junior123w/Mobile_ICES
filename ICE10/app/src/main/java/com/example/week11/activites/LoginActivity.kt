@@ -1,4 +1,4 @@
-package com.example.week11
+package com.example.week11.activites
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +11,10 @@ import android.content.SharedPreferences
 import android.view.Gravity
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
+import com.example.week11.services.DataManager
 import com.example.week11.databinding.ActivityLoginBinding
+import com.example.week11.models.ApiResponse
+import com.example.week11.models.User
 import com.google.android.material.snackbar.Snackbar
 
 class LoginActivity : AppCompatActivity()

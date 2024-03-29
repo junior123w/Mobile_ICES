@@ -1,4 +1,4 @@
-package com.example.week11
+package com.example.week11.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

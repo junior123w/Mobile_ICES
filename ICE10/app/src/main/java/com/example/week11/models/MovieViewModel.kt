@@ -1,4 +1,4 @@
-package com.example.week11
+package com.example.week11.models
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,6 +7,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import com.example.week11.services.DataManager
 
 class MovieViewModel(application: Application) : AndroidViewModel(application)
 {

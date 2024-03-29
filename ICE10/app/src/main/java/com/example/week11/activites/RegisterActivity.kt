@@ -1,9 +1,12 @@
-package com.example.week11
+package com.example.week11.activites
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.week11.services.DataManager
 import com.example.week11.databinding.ActivityRegisterBinding
+import com.example.week11.models.ApiResponse
+import com.example.week11.models.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

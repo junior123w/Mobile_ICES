@@ -1,7 +1,10 @@
-package com.example.week11
+package com.example.week11.services
 
 import android.annotation.SuppressLint
 import android.content.Context
+import com.example.week11.models.ApiResponse
+import com.example.week11.models.Movie
+import com.example.week11.models.User
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient

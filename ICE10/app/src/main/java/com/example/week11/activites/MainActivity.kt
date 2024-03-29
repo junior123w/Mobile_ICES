@@ -1,4 +1,4 @@
-package com.example.week11
+package com.example.week11.activites
 
 import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -8,12 +8,12 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.week11.FirstAdapter
+import com.example.week11.services.FirstAdapter
 import com.example.week11.R
 import com.example.week11.databinding.ActivityMainBinding
 import com.example.week11.databinding.AddNewMovieItemBinding
-import com.example.week11.Movie
-import com.example.week11.MovieViewModel
+import com.example.week11.models.Movie
+import com.example.week11.models.MovieViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
@@ -91,7 +91,6 @@ class MainActivity : AppCompatActivity()
         addMovieFAB = binding.addMovieFAB
         addMovieFAB.setOnClickListener{ showAddMovieDialog() }
 
-
     }
 
 
@@ -143,7 +142,5 @@ class MainActivity : AppCompatActivity()
         }
         builder.create().show()
     }
-
-
 
 }
